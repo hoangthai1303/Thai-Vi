@@ -20,9 +20,11 @@
 </head>
     <body>
         <a href="#" id="audioControl" style="display: none;"></a>
-        <audio autoplay="autoplay" id="yourAudio">
-                <source src="music/du-cho-mai-ve-sau.mp3" type="audio/mp3" />
-        </audio>  
+        <div id="divAudio" style="position: absolute; width: 33px; height: 33px; overflow: hidden; z-index: 100; top: calc(50vh - 135px); right: calc(50vw + 3px); background: #be1a25;">
+            <audio autoplay="autoplay" id="yourAudio" onplay="playAudio()" controls>
+                    <source src="music/du-cho-mai-ve-sau.mp3" type="audio/mp3" />
+            </audio>
+        </div>
         <div id="main">
              <div id="wrap">
                 <div id="text">
@@ -104,6 +106,13 @@
         var seed = tree.seed;
         var foot = tree.footer;
         var hold = 1;
+        playAudio = () => {
+            document.getElementById("divAudio").style.display = "none";
+            hold = 0; 
+            canvas.unbind("click");
+            canvas.unbind("mousemove");
+            canvas.removeClass('hand');
+        }
 
         canvas.click(function(e) {
             var offset = canvas.offset(), x, y;
