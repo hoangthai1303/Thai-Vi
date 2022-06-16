@@ -40,7 +40,7 @@ audio {
      height: 33px;
      overflow: hidden;
      z-index: 100;
-     top: calc(50vh - 135px);
+     top: calc(50vh - 106px);
      right: calc(50vw + 3px);
      background: #be1a25;
   }
